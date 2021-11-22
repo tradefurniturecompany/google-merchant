@@ -22,6 +22,7 @@ final class C1 extends \Df\Framework\Console\Command {
 	 * @used-by \Df\Framework\Console\Command::execute()
 	 */
 	protected function p() {
+		df_google_init_service_account();
 		$this->output()->writeln(__METHOD__);
 	}
 }
