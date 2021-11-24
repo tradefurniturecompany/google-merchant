@@ -154,6 +154,12 @@ final class C1 extends \Df\Framework\Console\Command {
 		# it may take a while to detect the change and recrawl the new image.»
 		# https://support.google.com/merchants/answer/6324350#urlguidelines
 		$r->setImageLink(df_product_image_url($p));
+		# 2021-11-24
+		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L220
+		# 2) String, required.
+		# «The two-letter ISO 639-1 language code for the item.»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.content_language
+		$r->setContentLanguage('en');
 		return $r;
 	}
 }
