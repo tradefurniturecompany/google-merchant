@@ -5,6 +5,8 @@ use Google\Service\ShoppingContent as S;
 use Google\Service\ShoppingContent\Account as Acc;
 use Google\Service\ShoppingContent\AccountIdentifier as AccId;
 use Google\Service\ShoppingContent\AccountsAuthInfoResponse as AuthInfo;
+use Google\Service\ShoppingContent\Product as gP;
+use Magento\Catalog\Model\Product as P;
 # 2021-11-22
 # "Setup an automatic integration between Magento and Google Merchant Center":
 # https://github.com/tradefurniturecompany/google-shopping/issues/1
@@ -59,6 +61,42 @@ final class C1 extends \Df\Framework\Console\Command {
 		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ContentSession.php#L235
 		# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/accounts#Account.FIELDS.website_url
 		$websiteUrl = $acc->getWebsiteUrl(); /** @var string $websiteUrl */
+		$gp = $this->gp(1); /** @var gP $gp */
 		$this->output()->writeln(__METHOD__);
+	}
+
+	/**
+	 * 2021-11-24
+	 * @used-by p()
+	 * @param int $id
+	 * @return gP
+	 */
+	private function gp($id) {
+		$p = df_product($id); /** @var P $p */
+		# 2021-11-24 https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L212
+		$r = new gP; /** @var gP $r */
+		# 2021-11-24
+		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L212
+		# 2) «String, required.
+		# A unique identifier for the item.
+		# Leading and trailing whitespaces are stripped
+		# and multiple whitespaces are replaced by a single whitespace upon submission.
+		# Only valid unicode characters are accepted.
+		# See the products feed specification for details: https://support.google.com/merchants/answer/7052112#id
+		# Note: Content API methods that operate on products take the REST ID of the product, not this identifier.»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.offer_id
+		# 3) «Required, Max 50 characters
+		# Your product’s unique identifier
+		# Example: A2B4
+		# Use a unique value for each product.
+		# - Use the product's SKU where possible.
+		# - Keep the ID the same when updating your data.
+		# - Use only valid unicode characters.
+		# - Avoid invalid characters like control, function, or private area characters.
+		# - Use the same ID for the same product - across countries or languages»
+		# https://support.google.com/merchants/answer/7052112#id
+		# 4) I use the Magento's product ID instead of SKU because SKU can be changed in the Magento's backend.
+		$r->setOfferId($id);
+		return $r;
 	}
 }
