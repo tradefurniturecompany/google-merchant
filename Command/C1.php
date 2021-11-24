@@ -85,7 +85,7 @@ final class C1 extends \Df\Framework\Console\Command {
 		# See the products feed specification for details: https://support.google.com/merchants/answer/7052112#id
 		# Note: Content API methods that operate on products take the REST ID of the product, not this identifier.»
 		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.offer_id
-		# 3) «Required, Max 50 characters.
+		# 3) «Required. Max 50 characters.
 		# Your product’s unique identifier.
 		# Example: A2B4.
 		# Use a unique value for each product.
@@ -105,7 +105,7 @@ final class C1 extends \Df\Framework\Console\Command {
 		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L215
 		# 2) String. «Title of the item»
 		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.title
-		# 3) «Required, Max 150 characters.
+		# 3) «Required. Max 150 characters.
 		# Your product’s name.
 		# Example: Mens Pique Polo Shirt.
 		# - Accurately describe your product and match the title from your landing page
@@ -120,6 +120,16 @@ final class C1 extends \Df\Framework\Console\Command {
 		# You will receive a warning indicating that the title has been truncated.»
 		# https://support.google.com/merchants/answer/6324415#Guidelines
 		$r->setTitle($p->getName());
+		# 2021-11-24
+		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L216
+		# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.description
+		# 3) «Required. Max 5000 characters.
+		# Use formatting (for example, line breaks, lists, or italics) to format your description»
+		# https://support.google.com/merchants/answer/7052112#description
+		# 4) «If your description does not fit within the character limit, Google will truncate it to fit.
+		# You will receive a warning indicating that the description has been truncated.»
+		# https://support.google.com/merchants/answer/6324468#Guidelines
+		$r->setDescription($p->getDescription());
 		return $r;
 	}
 }
