@@ -159,7 +159,7 @@ final class C1 extends \Df\Framework\Console\Command {
 		# 2) Optional. «Submit up to 10 additional product images»:
 		# https://support.google.com/merchants/answer/7052112#additional_image_link
 		# 3) https://support.google.com/merchants/answer/6324370
-		$r->setAdditionalImageLinks(array_slice([], 0, 10));
+		$r->setAdditionalImageLinks(df_product_images_additional($p, 10));
 		# 2021-11-24
 		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L220
 		# 2) String, required.
