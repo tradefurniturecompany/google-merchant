@@ -175,6 +175,13 @@ final class C1 extends \Df\Framework\Console\Command {
 		# 4) https://github.com/unicode-org/cldr/blob/release-40/common/main/en.xml#L996
 		# 5) https://github.com/unicode-org/cldr/blob/release-40/common/main/en.xml#L1163-L1164
 		$r->setTargetCountry('GB');
+		# 2021-11-30
+		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L222
+		# 2) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L24-L25
+		# 3) String, required.
+		# «The item's channel (online or local). Acceptable values are: "local", "online".»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.channel
+		$r->setChannel('online');
 		return $r;
 	}
 }
