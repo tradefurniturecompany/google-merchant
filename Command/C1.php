@@ -166,6 +166,15 @@ final class C1 extends \Df\Framework\Console\Command {
 		# «The two-letter ISO 639-1 language code for the item.»
 		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.content_language
 		$r->setContentLanguage('en');
+		# 2021-11-30
+		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L221
+		# 2) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L28-L29
+		# 3) String, required.
+		# «The CLDR territory code for the item.»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.target_country
+		# 4) https://github.com/unicode-org/cldr/blob/release-40/common/main/en.xml#L996
+		# 5) https://github.com/unicode-org/cldr/blob/release-40/common/main/en.xml#L1163-L1164
+		$r->setTargetCountry('GB');
 		return $r;
 	}
 }
