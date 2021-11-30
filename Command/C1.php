@@ -1,11 +1,12 @@
 <?php
 namespace TFC\GoogleShopping\Command;
-use Google\Client as C;
+use Google\Client as Cl;
 use Google\Service\ShoppingContent as S;
 use Google\Service\ShoppingContent\Account as Acc;
 use Google\Service\ShoppingContent\AccountIdentifier as AccId;
 use Google\Service\ShoppingContent\AccountsAuthInfoResponse as AuthInfo;
 use Google\Service\ShoppingContent\Product as gP;
+use Magento\Catalog\Model\Category as C;
 use Magento\Catalog\Model\Product as P;
 # 2021-11-22
 # "Setup an automatic integration between Magento and Google Merchant Center":
@@ -32,7 +33,7 @@ final class C1 extends \Df\Framework\Console\Command {
 		df_google_init_service_account();
 		# 2021-11-22
 		# https://github.com/googleapis/google-api-php-client/blob/v2.11.0/README.md#authentication-with-service-accounts
-		$c = new C; /** @var C $c */
+		$c = new Cl; /** @var Cl $c */
 		# 2021-11-22
 		# 1) https://github.com/googleapis/google-api-php-client/blob/v2.11.0/README.md#authentication-with-service-accounts
 		# 2) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ContentSession.php#L339
@@ -64,6 +65,15 @@ final class C1 extends \Df\Framework\Console\Command {
 		$gp = $this->gp(1); /** @var gP $gp */
 		$this->output()->writeln(__METHOD__);
 	}
+
+	/**
+	 * 2021-11-30
+	 * @param P $p
+	 * @return string|null
+	 */
+	private function brand(P $p) {return dfa(
+		$c = df_category_children_map(1540), df_first(array_intersect(df_int($p->getCategoryIds()), array_keys($c)))
+	);}
 
 	/**
 	 * 2021-11-24
@@ -182,6 +192,10 @@ final class C1 extends \Df\Framework\Console\Command {
 		# «The item's channel (online or local). Acceptable values are: "local", "online".»
 		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.channel
 		$r->setChannel('online');
+		# 2021-11-30
+		# 1) String, optional. «Brand of the item.»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.brand
+		$r->setBrand($this->brand($p));
 		return $r;
 	}
 }
