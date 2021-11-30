@@ -216,6 +216,49 @@ final class C1 extends \Df\Framework\Console\Command {
 		# that are each separated by a slash ( / ). For example: Red/Green/Black.»
  		# https://support.google.com/merchants/answer/6324487
 		$r->setColor('');
+		# 2021-12-01
+		# 1) String, optional.
+		# «Google's category of the item (see Google product taxonomy: https://support.google.com/merchants/answer/6324436).
+		# When querying products, this field will contain the user provided value.
+		# There is currently no way to get back the auto assigned google product categories through the API.»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.google_product_category
+		# 2) «You can use these attributes to organize your advertising campaigns in Google Ads
+		# and to override Google’s automatic product categorization in specific cases.»
+		# https://support.google.com/merchants/answer/7052112#intro-product-category
+		# 3.1) «Google-defined product category for your product».
+		# 3.2 «Example: Apparel & Accessories > Clothing > Outerwear > Coats & JacketsExample».
+		# 3.3) «Syntax: Value from the Google product taxonomy
+		# 	- The numerical category ID
+		#	- or The full path of the category»
+		# https://support.google.com/merchants/answer/7052112#google_product_category
+		# 4.1) «All products are automatically assigned a product category from Google’s continuously evolving product taxonomy.
+		# Providing high-quality, on-topic titles and descriptions, as well as accurate pricing, brand, and GTIN information
+		# will help ensure your products are correctly categorized.»
+		# 4.2) «The Google product category [google_product_category] attribute is optional,
+		# and can be used to override Google’s automatic categorization in specific cases.»
+		# 4.3)
+		# «Google will only accept a product category override in the following cases:
+		# 4.3.1) Calculation of US taxes.
+		# For products sold in the US, you can override Google’s automatic categorization
+		# to ensure that the correct US tax rate is applied to your product.
+		# 4.3.2) Enforcement of category-specific attribute requirements.
+		# Some product categories (such as Apparel & Accessories, Mobile Phones, or Software) impose additional required fields.
+		# If Google incorrectly assigns your product to one of these categories,
+		# use this attribute to override the categorization and remove the category-specific requirements.
+		# 4.3.3) Targeting of Google Ads campaigns.
+		# If you’ve defined any of your ad campaigns based upon Google’s product categories,
+		# you can use this attribute to reassign products within your campaign structure.
+		# Learn more about managing a Shopping campaign with product groups: https://support.google.com/google-ads/answer/6275317
+		# 4.3.4) Alcohol. Alcoholic beverages must be correctly categorized.
+		# If the category of your product is incorrectly assigned,
+		# you can use the Google product category [google_product_category] attribute to override it
+		#and ensure that your product remains compliant.
+		# Learn more about our alcoholic beverages policy.»
+		# 4.4) Download a list of all Google product categories:
+		# 4.4.1) http://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.xls
+		# 4.4.2) http://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt
+		# https://support.google.com/merchants/answer/6324436
+		$r->setGoogleProductCategory('');
 		return $r;
 	}
 }
