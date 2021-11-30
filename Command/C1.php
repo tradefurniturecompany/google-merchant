@@ -193,9 +193,29 @@ final class C1 extends \Df\Framework\Console\Command {
 		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.channel
 		$r->setChannel('online');
 		# 2021-11-30
-		# 1) String, optional. «Brand of the item.»
+		# String, optional. «Brand of the item.»
 		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.brand
 		$r->setBrand($this->brand($p));
+		# 2021-12-01
+		# 1) String, optional. «Color of the item.»
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.color
+		# 2.1)
+		# 	-	Required for all apparel products in feeds
+		# 		that are targeted to Brazil, France, Germany, Japan, the UK, and the US
+		#		as well as all products available in different colors).
+		#	-	Required for enhanced free listings for all Apparel & Accessories (ID: 166) products.
+		#	-	Optional for all other products and countries of sale.
+		# 2.2) Example: «Black».
+		# 2.3) Syntax: Max 100 alphanumeric characters (max 40 characters per color).
+		# https://support.google.com/merchants/answer/7052112#color
+		# 3.1) «Use the color [color] attribute to describe your product’s color.
+		# This information helps create accurate filters, which customers can use to narrow search results.
+		# If your product has variants that vary by color, use this attribute to provide that information.»
+		# 3.2) «Include up to 3 colors.
+		# If your product is made up of several colors, you can specify 1 primary color followed by up to 2 secondary colors
+		# that are each separated by a slash ( / ). For example: Red/Green/Black.»
+ 		# https://support.google.com/merchants/answer/6324487
+		$r->setColor('');
 		return $r;
 	}
 }
