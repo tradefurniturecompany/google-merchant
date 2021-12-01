@@ -252,13 +252,37 @@ final class C1 extends \Df\Framework\Console\Command {
 		# 4.3.4) Alcohol. Alcoholic beverages must be correctly categorized.
 		# If the category of your product is incorrectly assigned,
 		# you can use the Google product category [google_product_category] attribute to override it
-		#and ensure that your product remains compliant.
+		#n and ensure that your product remains compliant.
 		# Learn more about our alcoholic beverages policy.»
 		# 4.4) Download a list of all Google product categories:
 		# 4.4.1) http://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.xls
 		# 4.4.2) http://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt
 		# https://support.google.com/merchants/answer/6324436
 		$r->setGoogleProductCategory('');
+		# 2021-12-01
+		# 1) «Global Trade Item Number (GTIN) of the item»:
+		# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.gtin
+		# 2.1) «Required for all new products with a GTIN assigned by the manufacturer.
+		# Optional (strongly recommended) for all other products.
+		# 2.2) Example: 3234567890126.
+		# 2.3) Max 50 numeric characters (max 14 per value - added spaces and dashes are ignored).
+		# 2.4) Supported values:
+		# 	2.4.1)	UPC (in North America / GTIN-12).
+		# 			12-digit number like 323456789012.
+		#			8-digit UPC-E codes should be converted to 12-digit codes.
+		#	2.4.2)	EAN (in Europe / GTIN-13)
+		#			13-digit number like 3001234567892
+		#	2.4.3)	JAN (in Japan / GTIN-13)
+		#			8 or 13-digit number like 49123456 or 4901234567894
+		#	2.4.4) ISBN (for books)
+		#			10 or 13-digit number like 1455582344 or 978-1455582341.
+		#			If you have both, only include the 13-digit number.
+		#			ISBN-10 are deprecated and should be converted to ISBN-13.
+		#	2.4.5)	ITF-14 (for multipacks / GTIN-14).
+		#			14-digit number like 10856435001702.
+		# https://support.google.com/merchants/answer/7052112#gtin
+		# 3) https://support.google.com/merchants/answer/6324461
+		$r->setGtin('');
 		return $r;
 	}
 }
