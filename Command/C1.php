@@ -8,6 +8,8 @@ use Google\Service\ShoppingContent\AccountsAuthInfoResponse as AuthInfo;
 use Google\Service\ShoppingContent\Product as gP;
 use Magento\Catalog\Model\Category as C;
 use Magento\Catalog\Model\Product as P;
+use Magento\Catalog\Model\Product\Visibility as V;
+use Magento\Catalog\Model\ResourceModel\Product\Collection as PC;
 # 2021-11-22
 # "Setup an automatic integration between Magento and Google Merchant Center":
 # https://github.com/tradefurniturecompany/google-shopping/issues/1
@@ -62,6 +64,10 @@ final class C1 extends \Df\Framework\Console\Command {
 		# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ContentSession.php#L235
 		# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/accounts#Account.FIELDS.website_url
 		$websiteUrl = $acc->getWebsiteUrl(); /** @var string $websiteUrl */
+		$pc = df_pc(); /** @var PC $pc */
+		$pc->addAttributeToSelect('*');
+		$pc->setVisibility([V::VISIBILITY_BOTH, V::VISIBILITY_IN_CATALOG, V::VISIBILITY_IN_SEARCH]);
+		$pc->addMediaGalleryData(); # 2019-11-20 https://magento.stackexchange.com/a/228181
 		$gp = $this->gp(1); /** @var gP $gp */
 		$this->output()->writeln(__METHOD__);
 	}
@@ -283,6 +289,15 @@ final class C1 extends \Df\Framework\Console\Command {
 		# https://support.google.com/merchants/answer/7052112#gtin
 		# 3) https://support.google.com/merchants/answer/6324461
 		$r->setGtin('');
+		if (false) {
+			# 2021-12-02
+			# 1) String, optional.
+			# «Shared identifier for all variants of the same product»:
+			# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.item_group_id
+			# 2)
+			# 3) https://support.google.com/merchants/answer/6324507
+			$r->setItemGroupId('');
+		}
 		return $r;
 	}
 }
