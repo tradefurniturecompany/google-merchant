@@ -8,7 +8,6 @@ use \Closure as F;
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  * "Setup an automatic integration between Magento and Google Merchant Center":
  * https://github.com/tradefurniturecompany/google-shopping/issues/1
- * @return Xml
  */
 class Index extends _P {
 	/**

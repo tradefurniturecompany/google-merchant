@@ -19,7 +19,7 @@ class Result extends \Df\Framework\W\Result\Xml {
 	 * @used-by \Df\Framework\W\Result\Xml::__toString()
 	 * @return array(string => mixed)
 	 */
-	protected function contents() {return ['channel' => []];}
+	protected function contents() {return ['channel' => ['created_at' => df_dts(), 'item' => $this->_products]];}
 
 	/**
 	 * 2021-12-03
@@ -40,6 +40,7 @@ class Result extends \Df\Framework\W\Result\Xml {
 
 	/**
 	 * 2021-12-03
+	 * @used-by \TFC\GoogleShopping\Controller\Index\Index::p()
 	 * @param array(array(string => mixed)) $products
 	 * @return self
 	 */
