@@ -29,4 +29,19 @@ class Result extends \Df\Framework\W\Result\Xml {
 	 * @return string
 	 */
 	final protected function tag() {return 'rss';}
+
+	/**
+	 * 2021-12-03
+	 * @used-by contents()
+	 * @used-by i()
+	 * @var array(array(string => mixed))
+	 */
+	private $_products;
+
+	/**
+	 * 2021-12-03
+	 * @param array(array(string => mixed)) $products
+	 * @return self
+	 */
+	final static function i(array $products) {/** @var self $i */ $i = new self; $i->_products = $products; return $i;}
 }

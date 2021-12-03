@@ -1,6 +1,6 @@
 <?php
 namespace TFC\GoogleShopping\Controller\Index;
-use Df\Framework\W\Result\Xml;
+use TFC\GoogleShopping\Result;
 use Magento\Framework\App\Action\Action as _P;
 use \Closure as F;
 /**
@@ -18,7 +18,7 @@ class Index extends _P {
 	 * @used-by \Magento\Framework\App\Action\Action::dispatch():
 	 * 		$result = $this->execute();
 	 * https://github.com/magento/magento2/blob/2.4.3-p1/lib/internal/Magento/Framework/App/Action/Action.php#L95-L116
-	 * @return Xml
+	 * @return Result
 	 */
 	function execute() {return self::p(function() {
 
@@ -28,7 +28,7 @@ class Index extends _P {
 	 * 2021-12-03
 	 * @used-by execute()
 	 * @param F $f
-	 * @return Xml
+	 * @return Result
 	 */
 	private static function p(F $f) {/** @var array(string => mixed) $r */
 		try {
@@ -38,7 +38,7 @@ class Index extends _P {
 			$r = ['message' => $e->getMessage()];
 			df_sentry(__CLASS__, $e);
 		}
-		return Xml::i(is_null($r) ? 'OK' : (!is_array($r) ? $r : self::filter($r)));
+		return Result::i(is_null($r) ? 'OK' : (!is_array($r) ? $r : self::filter($r)));
 	}
 
 	/**
