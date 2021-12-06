@@ -1,5 +1,6 @@
 <?php
 namespace TFC\GoogleShopping;
+use \Zend_Date as ZD;
 # 2021-12-03 https://support.google.com/merchants/answer/160567
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Result extends \Df\Framework\W\Result\Xml {
@@ -19,7 +20,9 @@ class Result extends \Df\Framework\W\Result\Xml {
 	 * @used-by \Df\Framework\W\Result\Xml::__toString()
 	 * @return array(string => mixed)
 	 */
-	protected function contents() {return ['channel' => ['created_at' => df_dts(), 'item' => $this->_products]];}
+	protected function contents() {return ['channel' => [
+		'created_at' => df_dts(null, 'y-MM-dd HH:mm'), 'item' => $this->_products
+	]];}
 
 	/**
 	 * 2021-12-03
