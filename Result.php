@@ -1,6 +1,5 @@
 <?php
 namespace TFC\GoogleShopping;
-use \Zend_Date as ZD;
 # 2021-12-03 https://support.google.com/merchants/answer/160567
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Result extends \Df\Framework\W\Result\Xml {

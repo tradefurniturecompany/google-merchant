@@ -1,6 +1,7 @@
 <?php
 namespace TFC\GoogleShopping\Controller\Index;
 use Magento\Framework\App\Action\Action as _P;
+use TFC\GoogleShopping\Products;
 use TFC\GoogleShopping\Result as R;
 use \Closure as F;
 /**
@@ -19,24 +20,10 @@ class Index extends _P {
 	 * https://github.com/magento/magento2/blob/2.4.3-p1/lib/internal/Magento/Framework/App/Action/Action.php#L95-L116
 	 * @return R
 	 */
-	function execute() {return self::p(function() {return [];});}
-
-	/**
-	 * 2021-12-03
-	 * @used-by execute()
-	 * @param F $f
-	 * @return R
-	 */
-	private static function p(F $f) {/** @var array(string => mixed) $r */
-		try {
-			$r = $f();
-		}
-		catch (\Exception $e) {
-			$r = ['message' => $e->getMessage()];
-			df_sentry(__CLASS__, $e);
-		}
-		return R::i(is_null($r) ? 'OK' : (!is_array($r) ? $r : self::filter($r)));
-	}
+	function execute() {return R::i(self::filter(df_try(
+		function() {return Products::p();}
+		,function(\Exception $e) {df_sentry(__CLASS__, $e); return ['message' => $e->getMessage()];}
+	)));}
 
 	/**
 	 * 2021-12-03
