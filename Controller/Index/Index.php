@@ -1,7 +1,7 @@
 <?php
 namespace TFC\GoogleShopping\Controller\Index;
-use TFC\GoogleShopping\Result;
 use Magento\Framework\App\Action\Action as _P;
+use TFC\GoogleShopping\Result;
 use \Closure as F;
 /**
  * 2021-12-02
