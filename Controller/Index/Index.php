@@ -3,7 +3,6 @@ namespace TFC\GoogleShopping\Controller\Index;
 use Magento\Framework\App\Action\Action as _P;
 use TFC\GoogleShopping\Products;
 use TFC\GoogleShopping\Result as R;
-use \Closure as F;
 /**
  * 2021-12-02
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
