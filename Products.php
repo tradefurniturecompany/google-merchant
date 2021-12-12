@@ -17,9 +17,9 @@ final class Products {
 		$pc->addAttributeToSelect('*');
 		$pc->setVisibility([V::VISIBILITY_BOTH, V::VISIBILITY_IN_CATALOG, V::VISIBILITY_IN_SEARCH]);
 		$pc->addMediaGalleryData(); # 2019-11-20 https://magento.stackexchange.com/a/228181
-		return df_map($pc, function(P $p) {return [
+		return array_values(df_map($pc, function(P $p) {return [
 			'name' => $p->getName()
-		];});
+		];}));
 	}
 
 	/**
