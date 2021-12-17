@@ -21,6 +21,16 @@ final class Products {
 		$pc->addMediaGalleryData(); # 2019-11-20 https://magento.stackexchange.com/a/228181
 		return array_values(df_map($pc, function(P $p) {return dfak_prefix([
 			# 2021-11-24
+			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L216
+			# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.description
+			# 3) «Required. Max 5000 characters.
+			# Use formatting (for example, line breaks, lists, or italics) to format your description»
+			# https://support.google.com/merchants/answer/7052112#description
+			# 4) «If your description does not fit within the character limit, Google will truncate it to fit.
+			# You will receive a warning indicating that the description has been truncated.»
+			# https://support.google.com/merchants/answer/6324468#Guidelines
+			'description' => $p->getDescription()
+			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L214
 			# 2) String, required.
 			# «A unique identifier for the item.
@@ -45,7 +55,7 @@ final class Products {
 			# However, you can use the ID to look up your product, place bids, and check a product's performance.
 			# We recommend that you use your product SKU for this value.»
 			# https://support.google.com/merchants/answer/6324405
-			'id' => $p->getSku()
+			,'id' => $p->getSku()
 			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L215
 			# 2) String. «Title of the item»
