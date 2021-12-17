@@ -9,7 +9,7 @@ use Magento\Catalog\Model\ResourceModel\Product\Collection as PC;
 final class Products {
 	/**
 	 * 2021-21-06
-	 * @used-by p()
+	 * @used-by \TFC\GoogleShopping\Products::p()
 	 * @return array(array(string => mixed))
 	 */
 	private function _p() {
@@ -20,6 +20,7 @@ final class Products {
 		$pc->setVisibility([V::VISIBILITY_BOTH, V::VISIBILITY_IN_CATALOG, V::VISIBILITY_IN_SEARCH]);
 		$pc->addMediaGalleryData(); # 2019-11-20 https://magento.stackexchange.com/a/228181
 		return array_values(df_map($pc, function(P $p) {return dfak_prefix([
+			'additional_image_link' => []
 			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L216
 			# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.description
@@ -29,7 +30,7 @@ final class Products {
 			# 4) «If your description does not fit within the character limit, Google will truncate it to fit.
 			# You will receive a warning indicating that the description has been truncated.»
 			# https://support.google.com/merchants/answer/6324468#Guidelines
-			'description' => $p->getDescription()
+			,'description' => $p->getDescription()
 			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L214
 			# 2) String, required.
@@ -56,6 +57,23 @@ final class Products {
 			# We recommend that you use your product SKU for this value.»
 			# https://support.google.com/merchants/answer/6324405
 			,'id' => $p->getSku()
+			# 2021-11-24
+			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L218-L219
+			# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.image_link
+			# 3) «Required. The URL of your product’s main image. Don't submit a placeholder or a generic image.»
+			# https://support.google.com/merchants/answer/7052112#image_link
+			# 4) «If you have multiple, different images of the product,
+			# submit the main image using the image link [image_link] attribute,
+			# and include all other images in the additional image link [additional_image_link] attribute.»
+			# https://support.google.com/merchants/answer/6324350
+			# 5) «Once you submit your product data, the image will typically be crawled within 3 days.»
+			# https://support.google.com/merchants/answer/6324350#urlguidelines
+			# 6) «If you need to change an image of an existing product, submit a new URL for the new image.
+			# When you submit a new URL, the image will be crawled within 3 days.
+			# Keep in mind that if you change the image, but keep the same URL,
+			# it may take a while to detect the change and recrawl the new image.»
+			# https://support.google.com/merchants/answer/6324350#urlguidelines
+			,'image_link' => df_product_image_url($p)
 			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L217
 			# 2) «String. URL directly linking to your item's page on your website.»
@@ -86,7 +104,8 @@ final class Products {
 	}
 
 	/**
-	 * 2021-21-06
+	 * 2021-12-06
+	 * @used-by \TFC\GoogleShopping\Controller\Index\Index::execute()
 	 * @return array(array(string => mixed))
 	 */
 	static function p() {$i = new self; return $i->_p();}

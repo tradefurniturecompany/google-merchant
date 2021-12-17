@@ -34,7 +34,7 @@ class Index extends _P {
 	private static function filter(array $a) {
 		$r = []; /** @var array(string => mixed) $r */
 		foreach ($a as $k => $v) { /** @var string $k */ /** @var mixed $v */
-			if (!in_array($v, ['', null], true)) {
+			if (!in_array($v, ['', [], null], true)) {
 				$r[$k] = !is_array($v) ? $v : self::filter($v);
 			}
 		}
