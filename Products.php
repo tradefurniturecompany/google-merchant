@@ -57,6 +57,13 @@ final class Products {
 			# https://support.google.com/merchants/answer/6324405
 			,'id' => $p->getSku()
 			# 2021-11-24
+			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L217
+			# 2) «String. URL directly linking to your item's page on your website.»
+			# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.link
+			# 3) «Required. Your product’s landing page.» https://support.google.com/merchants/answer/7052112#link
+			# 4) https://support.google.com/merchants/answer/6324416
+			,'link' => $p->getProductUrl()
+			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L215
 			# 2) String. «Title of the item»
 			# https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.title
