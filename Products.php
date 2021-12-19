@@ -20,7 +20,12 @@ final class Products {
 		$pc->setVisibility([V::VISIBILITY_BOTH, V::VISIBILITY_IN_CATALOG, V::VISIBILITY_IN_SEARCH]);
 		$pc->addMediaGalleryData(); # 2019-11-20 https://magento.stackexchange.com/a/228181
 		return array_values(df_map($pc, function(P $p) {return dfak_prefix([
-			'additional_image_link' => []
+			# 2021-11-24
+			# 1) https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.additional_image_links
+			# 2) Optional. «Submit up to 10 additional product images»:
+			# https://support.google.com/merchants/answer/7052112#additional_image_link
+			# 3) https://support.google.com/merchants/answer/6324370
+			'additional_image_link' => df_product_images_additional($p, 10)
 			# 2021-11-24
 			# 1) https://github.com/googleads/googleads-shopping-samples/blob/053bc550/php/ProductsSample.php#L216
 			# 2) https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.description
