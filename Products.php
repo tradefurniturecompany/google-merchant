@@ -79,7 +79,7 @@ final class Products {
 	 */
 	private function atts(P $p, array $a) {return df_map_r($a, function($c) use($p) {
 		$i = new $c($p); /** @var Att $i */
-		return [df_class_llc($c), $i->v()];
+		return [df_camel_to_underscore(df_class_l($c)), $i->v()];
 	});}
 
 	/**
