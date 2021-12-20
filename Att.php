@@ -8,6 +8,7 @@ use Magento\Catalog\Model\Product as P;
  * @see \TFC\GoogleShopping\Att\Availability
  * @see \TFC\GoogleShopping\Att\Id
  * @see \TFC\GoogleShopping\Att\ImageLink
+ * @see \TFC\GoogleShopping\Att\Title
  */
 abstract class Att {
 	/**
@@ -16,6 +17,7 @@ abstract class Att {
 	 * @see \TFC\GoogleShopping\Att\Availability::v()
 	 * @see \TFC\GoogleShopping\Att\Id::v()
 	 * @see \TFC\GoogleShopping\Att\ImageLink::v()
+	 * @see \TFC\GoogleShopping\Att\Title::v()
 	 * @return string
 	 */
 	abstract function v();
@@ -31,6 +33,7 @@ abstract class Att {
 	 * 2021-12-19
 	 * @used-by \TFC\GoogleShopping\Att\Id::v()
 	 * @used-by \TFC\GoogleShopping\Att\ImageLink::v()
+	 * @used-by \TFC\GoogleShopping\Att\Title::v()
 	 * @return P
 	 */
 	final protected function p() {return $this->_p;}
