@@ -1,4 +1,4 @@
-An integration between [tradefurniturecompany.co.uk](https://www.tradefurniturecompany.co.uk) (Magento 2) and [Google Merchant Center](https://www.google.com/retail/solutions/merchant-center) via the Google's [Content API for Shopping](https://developers.google.com/shopping-content).
+An integration between [tradefurniturecompany.co.uk](https://www.tradefurniturecompany.co.uk) (Magento 2) and [Google Merchant Center](https://www.google.com/retail/solutions/merchant-center).
 
 ## How to install
 ```             
