@@ -44,6 +44,7 @@ namespace TFC\GoogleShopping\Att;
 #		If your original and sale prices meet certain requirements, your original price may show along with the sale price,
 #		allowing people to see the difference between the two.
 #» https://support.google.com/merchants/answer/6324371
+/** @used-by \TFC\GoogleShopping\Products::_p() */
 final class Price extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-20
@@ -52,5 +53,5 @@ final class Price extends \TFC\GoogleShopping\Att {
 	 * @used-by \TFC\GoogleShopping\Products::atts()
 	 * @return string
 	 */
-	function v() {return df_cc_s($this->p()->getFinalPrice(), $this->p()->getStore()->getDefaultCurrencyCode());}
+	function v() {return df_cc_s(dff_2($this->p()->getFinalPrice()), $this->p()->getStore()->getDefaultCurrencyCode());}
 }

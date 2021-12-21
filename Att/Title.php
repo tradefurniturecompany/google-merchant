@@ -18,6 +18,7 @@ namespace TFC\GoogleShopping\Att;
 # 5) «If your title does not fit within the maximum character limit, Google will truncate it to fit.
 # You will receive a warning indicating that the title has been truncated.»
 # https://support.google.com/merchants/answer/6324415#Guidelines
+/** @used-by \TFC\GoogleShopping\Products::_p() */
 final class Title extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-20

@@ -71,6 +71,7 @@ namespace TFC\GoogleShopping\Att;
 #		to automatically update your product data, preventing disapprovals.
 #		Learn how to set up automatic item updates: https://support.google.com/merchants/answer/6324486
 # » https://support.google.com/merchants/answer/6324448
+/** @used-by \TFC\GoogleShopping\Products::_p() */
 final class Availability extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-19

@@ -16,6 +16,7 @@ namespace TFC\GoogleShopping\Att;
 # Keep in mind that if you change the image, but keep the same URL,
 # it may take a while to detect the change and recrawl the new image.»
 # https://support.google.com/merchants/answer/6324350#urlguidelines
+/** @used-by \TFC\GoogleShopping\Products::_p() */
 final class ImageLink extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-19

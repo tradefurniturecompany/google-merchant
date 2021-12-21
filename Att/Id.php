@@ -25,6 +25,7 @@ namespace TFC\GoogleShopping\Att;
 # However, you can use the ID to look up your product, place bids, and check a product's performance.
 # We recommend that you use your product SKU for this value.»
 # https://support.google.com/merchants/answer/6324405
+/** @used-by \TFC\GoogleShopping\Products::_p() */
 final class Id extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-19

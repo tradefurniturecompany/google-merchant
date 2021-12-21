@@ -9,6 +9,7 @@ namespace TFC\GoogleShopping\Att;
 # 4) «If your description does not fit within the character limit, Google will truncate it to fit.
 # You will receive a warning indicating that the description has been truncated.»
 # https://support.google.com/merchants/answer/6324468#Guidelines
+/** @used-by \TFC\GoogleShopping\Products::_p() */
 final class Description extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-20
