@@ -5,20 +5,28 @@ use Magento\Catalog\Model\Product as P;
  * 2021-12-19
  * "Setup an automatic integration between Magento and Google Merchant Center":
  * https://github.com/tradefurniturecompany/google-shopping/issues/1
+ * @see \TFC\GoogleShopping\Att\AdditionalImageLink
  * @see \TFC\GoogleShopping\Att\Availability
+ * @see \TFC\GoogleShopping\Att\Description
  * @see \TFC\GoogleShopping\Att\Id
  * @see \TFC\GoogleShopping\Att\ImageLink
+ * @see \TFC\GoogleShopping\Att\Link
+ * @see \TFC\GoogleShopping\Att\Price
  * @see \TFC\GoogleShopping\Att\Title
  */
 abstract class Att {
 	/**
 	 * 2021-12-19
 	 * @used-by \TFC\GoogleShopping\Products::atts()
+	 * @see \TFC\GoogleShopping\Att\AdditionalImageLink::v()
 	 * @see \TFC\GoogleShopping\Att\Availability::v()
+	 * @see \TFC\GoogleShopping\Att\Description::v()
 	 * @see \TFC\GoogleShopping\Att\Id::v()
 	 * @see \TFC\GoogleShopping\Att\ImageLink::v()
+	 * @see \TFC\GoogleShopping\Att\Link::v()
+	 * @see \TFC\GoogleShopping\Att\Price::v()
 	 * @see \TFC\GoogleShopping\Att\Title::v()
-	 * @return string
+	 * @return string|string[]
 	 */
 	abstract function v();
 
@@ -31,8 +39,12 @@ abstract class Att {
 
 	/**
 	 * 2021-12-19
+	 * @used-by \TFC\GoogleShopping\Att\AdditionalImageLink::v()
+	 * @used-by \TFC\GoogleShopping\Att\Description::v()
 	 * @used-by \TFC\GoogleShopping\Att\Id::v()
 	 * @used-by \TFC\GoogleShopping\Att\ImageLink::v()
+	 * @used-by \TFC\GoogleShopping\Att\Link::v()
+	 * @used-by \TFC\GoogleShopping\Att\Price::v()
 	 * @used-by \TFC\GoogleShopping\Att\Title::v()
 	 * @return P
 	 */
