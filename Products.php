@@ -45,6 +45,7 @@ final class Products {
 			,\TFC\GoogleShopping\Att\Id::class
 			,\TFC\GoogleShopping\Att\ImageLink::class
 			,\TFC\GoogleShopping\Att\Link::class
+			,\TFC\GoogleShopping\Att\Mpn::class
 			,\TFC\GoogleShopping\Att\Price::class
 			,\TFC\GoogleShopping\Att\SalePrice::class
 			,\TFC\GoogleShopping\Att\Title::class

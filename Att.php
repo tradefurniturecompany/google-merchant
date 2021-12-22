@@ -12,6 +12,7 @@ use Magento\Catalog\Model\Product as P;
  * @see \TFC\GoogleShopping\Att\Id
  * @see \TFC\GoogleShopping\Att\ImageLink
  * @see \TFC\GoogleShopping\Att\Link
+ * @see \TFC\GoogleShopping\Att\Mpn
  * @see \TFC\GoogleShopping\Att\Price
  * @see \TFC\GoogleShopping\Att\SalePrice
  * @see \TFC\GoogleShopping\Att\Title
@@ -27,6 +28,7 @@ abstract class Att {
 	 * @see \TFC\GoogleShopping\Att\Id::v()
 	 * @see \TFC\GoogleShopping\Att\ImageLink::v()
 	 * @see \TFC\GoogleShopping\Att\Link::v()
+	 * @see \TFC\GoogleShopping\Att\Mpn::v()
 	 * @see \TFC\GoogleShopping\Att\Price::v()
 	 * @see \TFC\GoogleShopping\Att\SalePrice::v()
 	 * @see \TFC\GoogleShopping\Att\Title::v()
@@ -49,6 +51,7 @@ abstract class Att {
 	 * @used-by \TFC\GoogleShopping\Att\Id::v()
 	 * @used-by \TFC\GoogleShopping\Att\ImageLink::v()
 	 * @used-by \TFC\GoogleShopping\Att\Link::v()
+	 * @used-by \TFC\GoogleShopping\Att\Mpn::v()
 	 * @used-by \TFC\GoogleShopping\Att\Price::v()
 	 * @used-by \TFC\GoogleShopping\Att\SalePrice::v()
 	 * @used-by \TFC\GoogleShopping\Att\Title::v()
