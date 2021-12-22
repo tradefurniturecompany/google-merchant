@@ -25,7 +25,7 @@ final class Products {
 		# A product with a special price:
 		# https://www.tradefurniturecompany.co.uk/admin/catalog/product/edit/id/6063
 		# https://www.tradefurniturecompany.co.uk/cream-barcelona-leather-dining-chair-t10
-		$pc->addAttributeToFilter('entity_id', [119, 6063]);
+		#$pc->addAttributeToFilter('entity_id', [119, 6063]);
 		#$pc->getSelect()->limit(1);
 		/**
 		 * 2021-12-20
