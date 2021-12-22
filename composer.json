@@ -1,6 +1,6 @@
 {
 	"name": "tradefurniturecompany/google-shopping"
-	,"version": "0.0.3"
+	,"version": "0.0.4"
 	,"description": "An integration between tradefurniturecompany.co.uk (Magento 2) and Google Merchant Center"
 	,"type": "magento2-module"
 	,"homepage": "https://github.com/tradefurniturecompany/google-shopping"

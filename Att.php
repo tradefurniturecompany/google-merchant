@@ -7,6 +7,7 @@ use Magento\Catalog\Model\Product as P;
  * https://github.com/tradefurniturecompany/google-shopping/issues/1
  * @see \TFC\GoogleShopping\Att\AdditionalImageLink
  * @see \TFC\GoogleShopping\Att\Availability
+ * @see \TFC\GoogleShopping\Att\Brand
  * @see \TFC\GoogleShopping\Att\Description
  * @see \TFC\GoogleShopping\Att\Id
  * @see \TFC\GoogleShopping\Att\ImageLink
@@ -21,6 +22,7 @@ abstract class Att {
 	 * @used-by \TFC\GoogleShopping\Products::atts()
 	 * @see \TFC\GoogleShopping\Att\AdditionalImageLink::v()
 	 * @see \TFC\GoogleShopping\Att\Availability::v()
+	 * @see \TFC\GoogleShopping\Att\Brand::v()
 	 * @see \TFC\GoogleShopping\Att\Description::v()
 	 * @see \TFC\GoogleShopping\Att\Id::v()
 	 * @see \TFC\GoogleShopping\Att\ImageLink::v()
@@ -42,6 +44,7 @@ abstract class Att {
 	/**
 	 * 2021-12-19
 	 * @used-by \TFC\GoogleShopping\Att\AdditionalImageLink::v()
+	 * @used-by \TFC\GoogleShopping\Att\Brand::v()
 	 * @used-by \TFC\GoogleShopping\Att\Description::v()
 	 * @used-by \TFC\GoogleShopping\Att\Id::v()
 	 * @used-by \TFC\GoogleShopping\Att\ImageLink::v()

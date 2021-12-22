@@ -26,6 +26,9 @@ final class Products {
 		# https://www.tradefurniturecompany.co.uk/admin/catalog/product/edit/id/6063
 		# https://www.tradefurniturecompany.co.uk/cream-barcelona-leather-dining-chair-t10
 		#$pc->addAttributeToFilter('entity_id', [119, 6063]);
+		# 2021-12-22
+		# https://www.tradefurniturecompany.co.uk/admin/catalog/product/edit/id/6219
+		#$pc->addAttributeToFilter('sku', 'T57');
 		#$pc->getSelect()->limit(1);
 		/**
 		 * 2021-12-20
@@ -37,6 +40,7 @@ final class Products {
 		return array_values(df_map($pc, function(P $p) {return dfak_prefix($this->atts($p, [
 			\TFC\GoogleShopping\Att\AdditionalImageLink::class
 			,\TFC\GoogleShopping\Att\Availability::class
+			,\TFC\GoogleShopping\Att\Brand::class
 			,\TFC\GoogleShopping\Att\Description::class
 			,\TFC\GoogleShopping\Att\Id::class
 			,\TFC\GoogleShopping\Att\ImageLink::class
