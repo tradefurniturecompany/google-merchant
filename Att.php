@@ -47,6 +47,7 @@ abstract class Att {
 	 * @used-by \TFC\GoogleShopping\Att\ImageLink::v()
 	 * @used-by \TFC\GoogleShopping\Att\Link::v()
 	 * @used-by \TFC\GoogleShopping\Att\Price::v()
+	 * @used-by \TFC\GoogleShopping\Att\SalePrice::v()
 	 * @used-by \TFC\GoogleShopping\Att\Title::v()
 	 * @return P
 	 */

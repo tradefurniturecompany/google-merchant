@@ -60,6 +60,7 @@ final class Price extends \TFC\GoogleShopping\Att {
 	/**
 	 * 2021-12-21
 	 * @used-by v()
+	 * @used-by \TFC\GoogleShopping\Att\SalePrice::v()
 	 * @param P $p
 	 * @param float $a
 	 * @return string
