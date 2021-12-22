@@ -1,6 +1,6 @@
 {
 	"name": "tradefurniturecompany/google-shopping"
-	,"version": "0.0.2"
+	,"version": "0.0.3"
 	,"description": "An integration between tradefurniturecompany.co.uk (Magento 2) and Google Merchant Center via the Google's Content API for Shopping"
 	,"type": "magento2-module"
 	,"homepage": "https://github.com/tradefurniturecompany/google-shopping"
@@ -11,7 +11,7 @@
 		,"homepage": "https://mage2.pro/users/dmitry_fedyuk"
 		,"role": "Developer"
 	}]
-	,"require": {"google/apiclient": "^2.11", "mage2pro/core": ">=8.0.5"}
+	,"require": {"google/apiclient": "^2.11", "mage2pro/core": ">=8.0.8"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"TFC\\GoogleShopping\\": ""}}
 	,"keywords": ["Magento 2"]
 }
