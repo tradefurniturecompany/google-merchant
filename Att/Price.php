@@ -1,5 +1,6 @@
 <?php
 namespace TFC\GoogleShopping\Att;
+use Magento\Catalog\Model\Product as P;
 # 2021-12-20, 2021-12-21
 # 1) «Required.
 # Example: 15.00 USD.
@@ -44,6 +45,7 @@ namespace TFC\GoogleShopping\Att;
 #		If your original and sale prices meet certain requirements, your original price may show along with the sale price,
 #		allowing people to see the difference between the two.
 #» https://support.google.com/merchants/answer/6324371
+# 2021-12-22 "Implement the `price` attribute": https://github.com/tradefurniturecompany/google-shopping/issues/6
 /** @used-by \TFC\GoogleShopping\Products::_p() */
 final class Price extends \TFC\GoogleShopping\Att {
 	/**
@@ -53,5 +55,14 @@ final class Price extends \TFC\GoogleShopping\Att {
 	 * @used-by \TFC\GoogleShopping\Products::atts()
 	 * @return string
 	 */
-	function v() {return df_cc_s(dff_2($this->p()->getFinalPrice()), $this->p()->getStore()->getDefaultCurrencyCode());}
+	function v() {return self::format($p = $this->p(), df_price_special($p) ? df_price_regular($p) : $p->getFinalPrice());}
+
+	/**
+	 * 2021-12-21
+	 * @used-by v()
+	 * @param P $p
+	 * @param float $a
+	 * @return string
+	 */
+	static function format(P $p, $a) {return df_cc_s(dff_2($a), $p->getStore()->getDefaultCurrencyCode());}
 }
