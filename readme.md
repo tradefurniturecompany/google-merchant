@@ -8,7 +8,8 @@ sudo service php-fpm stop
 bin/magento maintenance:enable
 rm -rf composer.lock
 composer clear-cache
-composer require tradefurniturecompany/google-shopping:*
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/google-shopping:*
+composer update
 rm -rf var/di var/generation generated/*
 bin/magento setup:upgrade
 bin/magento cache:enable
@@ -39,7 +40,8 @@ bin/magento maintenance:enable
 composer remove tradefurniturecompany/google-shopping
 rm -rf composer.lock
 composer clear-cache
-composer require tradefurniturecompany/google-shopping:*
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/google-shopping:*
+composer update
 rm -rf var/di var/generation generated/*
 bin/magento setup:upgrade
 bin/magento cache:enable
