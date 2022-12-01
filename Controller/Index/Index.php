@@ -17,9 +17,8 @@ class Index extends _P {
 	 * @used-by \Magento\Framework\App\Action\Action::dispatch():
 	 * 		$result = $this->execute();
 	 * https://github.com/magento/magento2/blob/2.4.3-p1/lib/internal/Magento/Framework/App/Action/Action.php#L95-L116
-	 * @return R
 	 */
-	function execute() {return R::i(self::filter(df_try(
+	function execute():R {return R::i(self::filter(df_try(
 		function() {return Products::p();}
 		,function(\Exception $e) {df_sentry(__CLASS__, $e); return ['message' => $e->getMessage()];}
 	)));}
