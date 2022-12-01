@@ -55,7 +55,7 @@ final class Products {
 
 	/**
 	 * 2021-12-19
-	 * @used-by _p()
+	 * @used-by self::_p()
 	 * @param string[] $a
 	 */
 	private function atts(P $p, array $a):array {return df_map_r($a, function($c) use($p):array {
