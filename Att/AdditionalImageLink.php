@@ -12,7 +12,6 @@ final class AdditionalImageLink extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {return df_product_images_additional($this->p(), 10);}
+	function v():string {return df_product_images_additional($this->p(), 10);}
 }
