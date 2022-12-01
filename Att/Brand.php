@@ -8,9 +8,8 @@ final class Brand extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {
+	function v():string {
 		static $c; $c = $c ?: df_category_children_map(1540); /** @var array(int => string) $c */
 		$p = $this->p();
 		$k = df_first(array_intersect(df_int($p->getCategoryIds()), array_keys($c)));
