@@ -8,7 +8,6 @@ final class Mpn extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {return $this->p()->getSku();}
+	function v():string {return $this->p()->getSku();}
 }
