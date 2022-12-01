@@ -13,7 +13,6 @@ final class Link extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {return $this->p()->getProductUrl();}
+	function v():string {return $this->p()->getProductUrl();}
 }
