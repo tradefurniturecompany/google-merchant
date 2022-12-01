@@ -54,9 +54,8 @@ abstract class Att {
 	 * @used-by \TFC\GoogleShopping\Att\Price::v()
 	 * @used-by \TFC\GoogleShopping\Att\SalePrice::v()
 	 * @used-by \TFC\GoogleShopping\Att\Title::v()
-	 * @return P
 	 */
-	final protected function p() {return $this->_p;}
+	final protected function p():P {return $this->_p;}
 
 	/**
 	 * 2021-12-19
