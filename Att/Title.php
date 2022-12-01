@@ -25,7 +25,6 @@ final class Title extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {return $this->p()->getName();}
+	function v():string {return $this->p()->getName();}
 }
