@@ -3,7 +3,6 @@ namespace TFC\GoogleShopping;
 use Magento\Catalog\Model\Product as P;
 use Magento\Catalog\Model\Product\Visibility as V;
 use Magento\Catalog\Model\ResourceModel\Product\Collection as PC;
-use TFC\GoogleShopping\Att;
 # 2021-12-06
 # "Setup an automatic integration between Magento and Google Merchant Center":
 # https://github.com/tradefurniturecompany/google-shopping/issues/1
