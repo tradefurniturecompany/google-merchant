@@ -16,7 +16,6 @@ final class Description extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {return $this->p()->getDescription();}
+	function v():string {return $this->p()->getDescription();}
 }
