@@ -59,8 +59,8 @@ abstract class Att {
 
 	/**
 	 * 2021-12-19
-	 * @used-by __construct()
-	 * @used-by p()
+	 * @used-by self::__construct()
+	 * @used-by self::p()
 	 * @var P
 	 */
 	private $_p;
