@@ -83,7 +83,7 @@ final class C1 extends \Df\Framework\Console\Command {
 
 	/**
 	 * 2021-11-24
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @param int $id
 	 * @return gP
 	 */

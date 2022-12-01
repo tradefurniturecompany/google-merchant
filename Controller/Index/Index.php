@@ -25,8 +25,8 @@ class Index extends _P {
 
 	/**
 	 * 2021-12-03
-	 * @used-by filter()
-	 * @used-by p()
+	 * @used-by self::filter()
+	 * @used-by self::p()
 	 * @param array(string => mixed) $a
 	 * @return array(string => mixed)
 	 */
