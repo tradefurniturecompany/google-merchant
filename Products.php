@@ -13,7 +13,7 @@ final class Products {
 	 * @used-by \TFC\GoogleShopping\Products::p()
 	 * @return array(array(string => mixed))
 	 */
-	private function _p() {
+	private function _p():array {
 		$pc = df_pc(); /** @var PC $pc */
 		$pc->addAttributeToSelect('*');
 		# 2021-12-20
@@ -21,6 +21,7 @@ final class Products {
 		# https://www.tradefurniturecompany.co.uk/admin/catalog/product/edit/id/119
 		# https://www.tradefurniturecompany.co.uk/catalog/product/view/id/119
 		#$pc->addAttributeToFilter('entity_id', 119);
+		$pc->addAttributeToFilter('entity_id', 1790);
 		# 2021-12-21
 		# A product with a special price:
 		# https://www.tradefurniturecompany.co.uk/admin/catalog/product/edit/id/6063
@@ -55,11 +56,9 @@ final class Products {
 	/**
 	 * 2021-12-19
 	 * @used-by _p()
-	 * @param P $p
 	 * @param string[] $a
-	 * @return array(string => string)
 	 */
-	private function atts(P $p, array $a) {return df_map_r($a, function($c) use($p) {
+	private function atts(P $p, array $a):array {return df_map_r($a, function($c) use($p):array {
 		$i = new $c($p); /** @var Att $i */
 		return [df_camel_to_underscore(df_class_l($c)), $i->v()];
 	});}

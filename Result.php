@@ -10,7 +10,7 @@ class Result extends \Df\Framework\W\Result\Xml {
 	 * @used-by \Df\Framework\W\Result\Xml::__toString()
 	 * @return array(string => mixed)
 	 */
-	final protected function attributes() {return ['version' => '2.0', 'xmlns:g' => 'http://base.google.com/ns/1.0'];}
+	final protected function attributes():array {return ['version' => '2.0', 'xmlns:g' => 'http://base.google.com/ns/1.0'];}
 
 	/**
 	 * 2021-12-03
@@ -19,7 +19,7 @@ class Result extends \Df\Framework\W\Result\Xml {
 	 * @used-by \Df\Framework\W\Result\Xml::__toString()
 	 * @return array(string => mixed)
 	 */
-	protected function contents() {return ['channel' => [
+	protected function contents():array {return ['channel' => [
 		'created_at' => df_dts(null, 'y-MM-dd HH:mm'), 'item' => $this->_products
 	]];}
 
@@ -28,9 +28,8 @@ class Result extends \Df\Framework\W\Result\Xml {
 	 * @override
 	 * @see \Df\Framework\W\Result\Xml::tag()
 	 * @used-by \Df\Framework\W\Result\Xml::__toString()
-	 * @return string
 	 */
-	final protected function tag() {return 'rss';}
+	final protected function tag():string {return 'rss';}
 
 	/**
 	 * 2021-12-03
@@ -43,8 +42,7 @@ class Result extends \Df\Framework\W\Result\Xml {
 	/**
 	 * 2021-12-03
 	 * @used-by \TFC\GoogleShopping\Controller\Index\Index::p()
-	 * @param array(array(string => mixed)) $products
-	 * @return self
+	 * @param array(array(string => mixed)) $p
 	 */
-	final static function i(array $products) {/** @var self $i */ $i = new self; $i->_products = $products; return $i;}
+	final static function i(array $p):self {/** @var self $i */ $i = new self; $i->_products = $p; return $i;}
 }
