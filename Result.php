@@ -33,8 +33,8 @@ class Result extends \Df\Framework\W\Result\Xml {
 
 	/**
 	 * 2021-12-03
-	 * @used-by contents()
-	 * @used-by i()
+	 * @used-by self::contents()
+	 * @used-by self::i()
 	 * @var array(array(string => mixed))
 	 */
 	private $_products;
