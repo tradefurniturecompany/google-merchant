@@ -95,7 +95,7 @@ final class Price extends \TFC\GoogleShopping\Att {
 
 	/**
 	 * 2022-12-01
-	 * @used-by v()
+	 * @used-by self::v()
 	 * @used-by \TFC\GoogleShopping\Att\SalePrice::v()
 	 * @return array(int|float)
 	 */
@@ -106,7 +106,7 @@ final class Price extends \TFC\GoogleShopping\Att {
 
 	/**
 	 * 2021-12-21
-	 * @used-by v()
+	 * @used-by self::v()
 	 * @used-by \TFC\GoogleShopping\Att\SalePrice::v()
 	 */
 	static function format(P $p, float $a):string {return df_cc_s(dff_2($a), $p->getStore()->getDefaultCurrencyCode());}
