@@ -19,8 +19,8 @@ class Index extends _P {
 	 * https://github.com/magento/magento2/blob/2.4.3-p1/lib/internal/Magento/Framework/App/Action/Action.php#L95-L116
 	 */
 	function execute():R {return R::i(self::filter(df_try(
-		function() {return Products::p();}
-		,function(\Exception $e) {df_sentry(__CLASS__, $e); return ['message' => $e->getMessage()];}
+		function():array {return Products::p();}
+		,function(\Exception $e):array {df_sentry(__CLASS__, $e); return ['message' => $e->getMessage()];}
 	)));}
 
 	/**
@@ -30,7 +30,7 @@ class Index extends _P {
 	 * @param array(string => mixed) $a
 	 * @return array(string => mixed)
 	 */
-	private static function filter(array $a) {
+	private static function filter(array $a):array {
 		$r = []; /** @var array(string => mixed) $r */
 		foreach ($a as $k => $v) { /** @var string $k */ /** @var mixed $v */
 			if (!in_array($v, ['', [], null], true)) {
