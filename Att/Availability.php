@@ -78,7 +78,6 @@ final class Availability extends \TFC\GoogleShopping\Att {
 	 * @override
 	 * @see \TFC\GoogleShopping\Att::v()
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @return string
 	 */
-	function v() {return 'in_stock';}
+	function v():string {return 'in_stock';}
 }
