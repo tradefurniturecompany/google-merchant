@@ -1,14 +1,14 @@
 {
 	"name": "tradefurniturecompany/google-shopping"
-	,"version": "0.0.5"
+	,"version": "1.0.0"
 	,"description": "An integration between tradefurniturecompany.co.uk (Magento 2) and Google Merchant Center"
 	,"type": "magento2-module"
 	,"homepage": "https://github.com/tradefurniturecompany/google-shopping"
 	,"license": "MIT"
 	,"authors": [{
-		"name": "Dmitry Fedyuk"
+		"name": "Dmitrii Fediuk"
 		,"email": "admin@mage2.pro"
-		,"homepage": "https://mage2.pro/users/dmitry_fedyuk"
+		,"homepage": "https://www.upwork.com/fl/mage2pro"
 		,"role": "Developer"
 	}]
 	,"require": {"google/apiclient": "^2.11", "mage2pro/core": ">=8.0.8"}
