@@ -39,7 +39,6 @@ abstract class Att {
 	/**
 	 * 2021-12-19
 	 * @used-by \TFC\GoogleShopping\Products::atts()
-	 * @param P $p
 	 */
 	final function __construct(P $p) {$this->_p = $p;}
 
