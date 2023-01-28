@@ -67,5 +67,5 @@ final class Products {
 	 * @used-by \TFC\GoogleShopping\Controller\Index\Index::execute()
 	 * @return array(array(string => mixed))
 	 */
-	static function p() {$i = new self; return $i->_p();}
+	static function p():array {$i = new self; return $i->_p();}
 }
